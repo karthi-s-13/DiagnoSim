@@ -1,0 +1,106 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["student", "instructor"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "name", "email", "role"]
+    },
+    "Disease": {
+      "title": "Disease",
+      "description": "Medical disease information",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "symptoms": { "type": "array", "items": { "type": "string" } },
+        "risk_factors": { "type": "array", "items": { "type": "string" } },
+        "diagnostic_tests": { "type": "array", "items": { "type": "string" } },
+        "treatment": { "type": "string" }
+      },
+      "required": ["name", "symptoms"]
+    },
+    "PatientCase": {
+      "title": "PatientCase",
+      "description": "A specific simulation instance",
+      "type": "object",
+      "properties": {
+        "diseaseId": { "type": "string" },
+        "patientName": { "type": "string" },
+        "age": { "type": "integer" },
+        "gender": { "type": "string" },
+        "severity": { "type": "string", "enum": ["mild", "moderate", "severe"] },
+        "vitals": {
+          "type": "object",
+          "properties": {
+            "temp": { "type": "number" },
+            "bp": { "type": "string" },
+            "heartRate": { "type": "integer" },
+            "respRate": { "type": "integer" },
+            "o2": { "type": "integer" }
+          }
+        },
+        "chiefComplaint": { "type": "string" },
+        "history": { "type": "string" },
+        "status": { "type": "string", "enum": ["active", "completed"] },
+        "studentId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["diseaseId", "studentId", "status"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Messages in the simulation chat",
+      "type": "object",
+      "properties": {
+        "caseId": { "type": "string" },
+        "role": { "type": "string", "enum": ["student", "patient"] },
+        "content": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["caseId", "role", "content"]
+    },
+    "TestResult": {
+      "title": "TestResult",
+      "description": "Results of requested diagnostic tests",
+      "type": "object",
+      "properties": {
+        "caseId": { "type": "string" },
+        "testType": { "type": "string" },
+        "resultValue": { "type": "string" },
+        "isAbnormal": { "type": "boolean" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["caseId", "testType", "resultValue"]
+    },
+    "StudentAttempt": {
+      "title": "StudentAttempt",
+      "description": "A student's final diagnosis submission",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "caseId": { "type": "string" },
+        "diagnosis": { "type": "string" },
+        "isCorrect": { "type": "boolean" },
+        "score": { "type": "integer" },
+        "feedback": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "caseId", "diagnosis", "isCorrect"]
+    }
+  },
+  "firestore": {
+    "users": { "schema": "User", "description": "User profiles" },
+    "diseases": { "schema": "Disease", "description": "Disease database" },
+    "cases": { "schema": "PatientCase", "description": "Active and past simulation cases" },
+    "cases/{caseId}/messages": { "schema": "ChatMessage", "description": "Chat history for a case" },
+    "cases/{caseId}/tests": { "schema": "TestResult", "description": "Test results for a case" },
+    "attempts": { "schema": "StudentAttempt", "description": "Final diagnosis attempts" }
+  }
+}

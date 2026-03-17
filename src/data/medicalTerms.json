@@ -1,0 +1,17 @@
+[
+  { "term": "Tachycardia", "definition": "A heart rate that exceeds the normal resting rate, typically over 100 beats per minute." },
+  { "term": "Bradycardia", "definition": "A slower than normal heart rate, typically fewer than 60 beats per minute." },
+  { "term": "Dyspnea", "definition": "Difficult or labored breathing; shortness of breath." },
+  { "term": "Cyanosis", "definition": "A bluish discoloration of the skin resulting from poor circulation or inadequate oxygenation of the blood." },
+  { "term": "Hypoxia", "definition": "A condition in which the body or a region of the body is deprived of adequate oxygen supply at the tissue level." },
+  { "term": "Edema", "definition": "Swelling caused by excess fluid trapped in your body's tissues." },
+  { "term": "Auscultation", "definition": "The action of listening to sounds from the heart, lungs, or other organs, typically with a stethoscope." },
+  { "term": "Palpation", "definition": "A method of feeling with the fingers or hands during a physical examination." },
+  { "term": "Prognosis", "definition": "The likely course of a disease or ailment." },
+  { "term": "Etiology", "definition": "The cause, set of causes, or manner of causation of a disease or condition." },
+  { "term": "Pathogenesis", "definition": "The manner of development of a disease." },
+  { "term": "Idiopathic", "definition": "Relating to or denoting any disease or condition which arises spontaneously or for which the cause is unknown." },
+  { "term": "Iatrogenic", "definition": "Relating to illness caused by medical examination or treatment." },
+  { "term": "Nosocomial", "definition": "Originating or taking place in a hospital." },
+  { "term": "Febrile", "definition": "Having or showing the symptoms of a fever." }
+]
